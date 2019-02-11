@@ -5,14 +5,11 @@ import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 import javax.annotation.PostConstruct;
-import javax.faces.view.ViewScoped;
-import javax.inject.Named;
-import java.io.Serializable;
+import javax.enterprise.inject.Model;
 
 @Log4j
-@Named
-@ViewScoped
-public class ViewScopeModel implements Serializable {
+@Model
+public class JustSomeOtherModel {
 
     @Getter @Setter
     private Long key;
