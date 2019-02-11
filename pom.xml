@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.duckdns.owly.bugs</groupId>
+    <artifactId>myfaces-4282</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <properties>
+        <myfaces.version>2.3.3</myfaces.version>
+        <owb.version>2.0.8</owb.version>
+        <mojarra.version>2.3.8</mojarra.version>
+        <deltaspike.version>1.9.0</deltaspike.version>
+    </properties>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>myfaces</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.apache.myfaces.core</groupId>
+                    <artifactId>myfaces-api</artifactId>
+                    <version>${myfaces.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.myfaces.core</groupId>
+                    <artifactId>myfaces-impl</artifactId>
+                    <version>${myfaces.version}</version>
+                    <scope>runtime</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>mojarra</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.glassfish</groupId>
+                    <artifactId>javax.faces</artifactId>
+                    <version>${mojarra.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <!-- JSF stuff comes via the profiles -->
+
+        <!-- CDI stuff -->
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-annotation_1.3_spec</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-atinject_1.0_spec</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-jcdi_2.0_spec</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-interceptor_1.2_spec</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.openwebbeans</groupId>
+            <artifactId>openwebbeans-impl</artifactId>
+            <version>${owb.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.openwebbeans</groupId>
+            <artifactId>openwebbeans-spi</artifactId>
+            <version>${owb.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.openwebbeans</groupId>
+            <artifactId>openwebbeans-web</artifactId>
+            <version>${owb.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- DeltaSpike JSF module -->
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-jsf-module-api</artifactId>
+            <version>${deltaspike.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-jsf-module-impl</artifactId>
+            <version>${deltaspike.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Utils -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.4</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+    </dependencies>
+</project>
